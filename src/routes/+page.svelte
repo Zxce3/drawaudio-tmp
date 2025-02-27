@@ -2,6 +2,12 @@
   import { onMount, onDestroy } from 'svelte';
   import { AudioService } from '$lib/audio';
   import { SCALES } from '$lib/scales';
+  import { updateSeo } from '$lib/seo';
+  
+  updateSeo({
+    title: 'DrawAudio - Create Music by Drawing',
+    description: 'Draw patterns on a grid to create amazing musical sequences with this interactive audio sequencer. Experiment with different waveforms, effects, and musical scales.',
+  });
   
   type EffectParam = "delayTime" | "reverbMix" | "delayFeedback" | "distortion";
 
@@ -297,9 +303,15 @@
           </div>
         </div>
 
-        <!-- Stats under grid -->
-        <div class="text-sm text-gray-600">
-          Active Notes: {audioService ? audioService.getActiveNotesCount() : 0}
+        <div class="mt-4 text-center">
+          <a 
+            href="https://github.com/Zxce3/drawaudio-tmp" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-blue-600 hover:text-blue-800 transition-colors text-sm"
+          >
+            Source Code Available on GitHub
+          </a>
         </div>
       </div>
 
